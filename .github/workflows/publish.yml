@@ -31,6 +31,8 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
+      - name: Change wrapper permissions
+        run: chmod +x ./gradlew
       - name: Create Build Artifact
         run: ./gradlew clean build
       - name: SpotBugs Check
